@@ -1,0 +1,59 @@
+2014-12-31 V3.0.1.6
+1、修改API权限检查规则，特定的授权码可登录不能配置API权限的老版本交易系统(3.2.7)
+
+2014-12-24 V3.0.1.5
+1、增加查询监控事件的接口
+2、优化订单操作流控的逻辑（任意时刻进行订单操作时，都以它之前一秒内的操作次数判断)
+3、订单操作频率与授权码绑定（老的授权码默认为10次/秒）
+4、修正授权码有误或日志路径有问题时，都返回错误码24的问题。
+
+2014-12-17
+1、增加出入金金额不能小于等于0的限制
+2、增加非ADMIN操作员只能审核自己下属客户出入金的限制
+
+2014-12-02
+1、增加管理员端登陆身份类型
+2、增加出入金操作CashOper和出入金审核CashCheck接口
+3、修改接口函数名，QryCashOpera改为QryCashOper，QryHistCashOpera改为QryHistCashOper
+
+2013-12-18
+1、增加用户API权限控制，只有认证通过的开发商才允许通过API进行连接
+2、TEsOrderStateNoticeField，TEsOrderInfoNoticeField结构增加交易所系统号ExchangeSystemNo字段
+3、对于交易员用户登录，支持通过后台配置，控制其能否对下属用户报单进行修改或撤销
+
+2013-03-13
+1、修改推送通知中报单请求数据不完整问题
+
+2013-04-18
+1、TEsMoneyQryRspField增加Discount贴现金额,TradeFee交易手续费,DeliveryFee交割手续费, 
+   ExchangeFee汇兑手续费,FrozenDeposit冻结保证金,FrozenFee冻结手续费,NewFloatProfit浮盈(无LME),
+   LmeFloatProfitLME浮盈,OptionMarketValue期权市值,OriCash币种原始出入金(非自动汇兑资金),
+   TMoney今资金,TBalance今权益,TCanCashOut今可提,RiskRate风险率,AccountMarketValue账户市值
+   字段，增加TMoneyChgType类型的可能值
+   受影响函数OnQryMoney，OnRtnMoney
+
+2012-10-22
+1、TEsOrderRemoveNoticeField，TEsMatchRemoveNoticeField结构增加ClientNo字段
+2、触发单触发价不生效问题修改
+
+2012-09-27
+1、登录请求TEsLoginReqField增加OtpPass密码字段
+2、报单请求TEsOrderInsertReqField字段增加委托方式字段
+3、增加商品状态变化通知结构TEsCommodityStateModNoticeField，OnRtnCommodityState回调函数
+4、增加合约添加通知结构TEsContractAddNoticeField，OnRtnContractAdd回调函数
+5、增加市场状态修改通知结构TEsExchangeStateModifyNoticeField，OnRtnExchangeState回调参数
+   修改为TEsExchangeStateModifyNoticeField
+6、增加删除委托通知结构TEsOrderRemoveNoticeField，OnRtnOrderRemove回调函数
+7、增加删除成交通知结构TEsMatchRemoveNoticeField，OnRtnMatchRemove回调函数
+8、增加汇率变更通知TEsExchangeRateModifyNoticeField，OnRtnExchangeRateMod回调函数
+
+
+2012-09-11
+增加QryCurrency接口
+增加币种查询请求及应答结构TEsCurrencyQryReqField，TEsCurrencyQryRspField
+
+
+2012-08-27
+增加验证用户密码AuthClient接口
+TEsOrderInsertRspField,TEsOrderStateNoticeField,TEsOrderDeleteRspField,TEsOrderModifyRspField
+增加用户报单数据TEsOrderInsertReqField结构
